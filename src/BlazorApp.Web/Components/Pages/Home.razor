@@ -1,0 +1,177 @@
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="tw-mb-8">
+    <MudText Typo="Typo.h3" Class="tw-mb-4">
+        <span class="tw-text-gradient">Welcome to Blazor Production App</span>
+    </MudText>
+    <MudText Typo="Typo.subtitle1" Class="tw-text-gray-600">
+        A production-ready template with Blazor Server, MudBlazor, Tailwind CSS, and Dapper
+    </MudText>
+</div>
+
+<MudGrid>
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="3" Class="tw-card-hover">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Primary" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Material.Filled.Architecture" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Clean Architecture</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>Properly separated layers: Domain, Application, Infrastructure, and Presentation</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="3" Class="tw-card-hover">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Secondary" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Material.Filled.Palette" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">MudBlazor + Tailwind</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>Powerful component library combined with utility-first CSS framework</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Secondary">Explore</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="3" Class="tw-card-hover">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Tertiary" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Material.Filled.Storage" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Dapper Data Access</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>High-performance micro-ORM with repository pattern and async/await</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Tertiary" Href="/products">View Products</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="3" Class="tw-card-hover">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Info" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Material.Filled.Cloud" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Azure Ready</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>Configured for Azure App Service deployment with Azure SQL Database</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Info">Deploy Guide</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="3" Class="tw-card-hover">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Success" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Material.Filled.Code" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">VS Code Optimized</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>Fully configured for development in Visual Studio Code with proper project structure</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Success">Get Started</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="3" Class="tw-card-hover">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Warning" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Material.Filled.Security" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Production Best Practices</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>Environment configuration, logging, error handling, and security out of the box</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Warning">Documentation</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+<div class="tw-mt-12 tw-p-6 tw-bg-gradient-to-r tw-from-primary-50 tw-to-primary-100 tw-rounded-lg">
+    <MudText Typo="Typo.h5" Class="tw-mb-3">Quick Start</MudText>
+    <MudText Typo="Typo.body1" Class="tw-mb-4">
+        This template includes everything you need to build a production-ready Blazor application:
+    </MudText>
+    <div class="tw-space-y-2">
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>.NET 8.0 LTS</strong> - Latest long-term support version</MudText>
+        </div>
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>Blazor Server</strong> - Real-time interactivity with SignalR</MudText>
+        </div>
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>MudBlazor</strong> - Material Design component library</MudText>
+        </div>
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>Tailwind CSS</strong> - Utility-first CSS with custom prefix (tw-)</MudText>
+        </div>
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>Dapper</strong> - Micro-ORM for high-performance data access</MudText>
+        </div>
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>Repository Pattern</strong> - Clean data access abstraction</MudText>
+        </div>
+        <div class="tw-flex tw-items-center tw-gap-2">
+            <MudIcon Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success" />
+            <MudText><strong>Azure Ready</strong> - Environment-based configuration</MudText>
+        </div>
+    </div>
+</div>

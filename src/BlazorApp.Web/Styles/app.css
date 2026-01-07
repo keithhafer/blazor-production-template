@@ -1,0 +1,26 @@
+/* Tailwind CSS base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes that combine Tailwind utilities */
+@layer components {
+  .tw-card-hover {
+    @apply tw-transition-all tw-duration-300 hover:tw-shadow-lg hover:tw-scale-105;
+  }
+
+  .tw-btn-primary {
+    @apply tw-bg-primary-600 tw-text-white tw-px-4 tw-py-2 tw-rounded-lg hover:tw-bg-primary-700 tw-transition-colors;
+  }
+
+  .tw-input-field {
+    @apply tw-border tw-border-gray-300 tw-rounded-md tw-px-3 tw-py-2 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary-500;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .tw-text-gradient {
+    @apply tw-bg-gradient-to-r tw-from-primary-600 tw-to-primary-400 tw-bg-clip-text tw-text-transparent;
+  }
+}

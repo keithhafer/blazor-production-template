@@ -1,0 +1,27 @@
+{
+  "csharp.suppressDotnetRestoreNotification": true,
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true
+  },
+  "files.watcherExclude": {
+    "**/bin/**": true,
+    "**/obj/**": true,
+    "**/node_modules/**": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "razor": "html",
+    "cshtml": "html"
+  },
+  "tailwindCSS.classAttributes": ["class", "className", "Class", "classList"],
+  "emmet.includeLanguages": {
+    "razor": "html"
+  },
+  "[csharp]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "dotnet.defaultSolution": "BlazorApp.sln"
+}

@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/BlazorApp.sln",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "watch",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "watch",
+        "run",
+        "--project",
+        "${workspaceFolder}/src/BlazorApp.Web/BlazorApp.Web.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build:tailwind",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "build:css"],
+      "options": {
+        "cwd": "${workspaceFolder}/src/BlazorApp.Web"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "watch:tailwind",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "watch:css"],
+      "options": {
+        "cwd": "${workspaceFolder}/src/BlazorApp.Web"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^([^\\s].*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^Rebuilding\\.\\.\\.$",
+          "endsPattern": "^Done in \\d+ms\\.$"
+        }
+      }
+    },
+    {
+      "label": "dev",
+      "dependsOn": ["watch:tailwind", "watch"],
+      "problemMatcher": []
+    }
+  ]
+}

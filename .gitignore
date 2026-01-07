@@ -1,0 +1,84 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.vspscc
+*.vssscc
+.vs/
+.vscode/launch.json.bak
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio cache/options
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+*.sln.iml
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Node.js / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+## Tailwind CSS output (generated)
+src/BlazorApp.Web/wwwroot/css/app.css
+
+## Database
+*.mdf
+*.ldf
+*.ndf
+
+## Publish
+publish/
+*.pubxml
+*.pubxml.user
+
+## Application Settings (sensitive)
+appsettings.local.json
+**/appsettings.*.json
+!**/appsettings.json
+!**/appsettings.Development.json
+!**/appsettings.Production.json
+
+## Azure
+.azure/
+
+## OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+## Temporary files
+*.tmp
+*.bak
+*.orig

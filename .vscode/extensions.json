@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csdevkit",
+    "ms-dotnettools.csharp",
+    "bradlc.vscode-tailwindcss",
+    "ms-azuretools.vscode-azureappservice",
+    "ms-mssql.mssql",
+    "usernamehw.errorlens",
+    "christian-kohler.path-intellisense"
+  ]
+}

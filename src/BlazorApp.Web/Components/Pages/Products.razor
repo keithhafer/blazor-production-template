@@ -1,0 +1,139 @@
+@page "/products"
+@inject IProductService ProductService
+@inject ISnackbar Snackbar
+
+<PageTitle>Products</PageTitle>
+
+<div class="tw-mb-6">
+    <MudText Typo="Typo.h3" Class="tw-mb-2">Product Management</MudText>
+    <MudText Typo="Typo.subtitle1" Class="tw-text-gray-600">
+        Example data retrieval using Dapper, Repository Pattern, and MudBlazor
+    </MudText>
+</div>
+
+<MudPaper Class="tw-p-4 tw-mb-4" Elevation="2">
+    <MudTextField @bind-Value="_searchTerm" 
+                  Placeholder="Search products..." 
+                  Adornment="Adornment.Start" 
+                  AdornmentIcon="@Icons.Material.Filled.Search"
+                  Immediate="true"
+                  OnKeyUp="@OnSearchKeyUp" />
+</MudPaper>
+
+@if (_loading)
+{
+    <div class="tw-flex tw-justify-center tw-items-center tw-py-12">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </div>
+}
+else if (!_products.Any())
+{
+    <MudAlert Severity="Severity.Info" Class="tw-mt-4">
+        No products found. Ensure the database is set up and populated with sample data.
+    </MudAlert>
+}
+else
+{
+    <MudTable Items="@_products" Hover="true" Striped="true" Dense="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Category</MudTh>
+            <MudTh Class="tw-text-right">Price</MudTh>
+            <MudTh Class="tw-text-right">Stock</MudTh>
+            <MudTh>Status</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Name">
+                <MudText Typo="Typo.body2" Class="tw-font-medium">@context.Name</MudText>
+            </MudTd>
+            <MudTd DataLabel="Description">
+                <MudText Typo="Typo.body2">@context.Description</MudText>
+            </MudTd>
+            <MudTd DataLabel="Category">
+                <MudText Typo="Typo.body2" Class="tw-bg-primary-100 tw-px-2 tw-py-1 tw-rounded">@context.Category</MudText>
+            </MudTd>
+            <MudTd DataLabel="Price" Class="tw-text-right">
+                <MudText Typo="Typo.body2" Class="tw-font-semibold tw-text-green-600">@context.Price.ToString("C")</MudText>
+            </MudTd>
+            <MudTd DataLabel="Stock" Class="tw-text-right">
+                <MudText Typo="Typo.body2">@context.StockQuantity</MudText>
+            </MudTd>
+            <MudTd DataLabel="Status">
+                @if (context.IsActive)
+                {
+                    <MudText Class="tw-text-green-600 tw-font-medium">● Active</MudText>
+                }
+                else
+                {
+                    <MudText Class="tw-text-gray-400">○ Inactive</MudText>
+                }
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+}
+
+<MudDivider Class="tw-my-8" />
+
+<div class="tw-bg-blue-50 tw-p-6 tw-rounded-lg">
+    <MudText Typo="Typo.h6" Class="tw-mb-3">💡 Database Setup Instructions</MudText>
+    <MudText Typo="Typo.body2" Class="tw-mb-2">
+        <strong>1. Configure Connection String</strong> - Update <code class="tw-bg-white tw-px-2 tw-py-1 tw-rounded">appsettings.Development.json</code>
+    </MudText>
+    <MudText Typo="Typo.body2" Class="tw-mb-2">
+        <strong>2. Run Database Schema</strong> - Execute <code class="tw-bg-white tw-px-2 tw-py-1 tw-rounded">database/schema.sql</code>
+    </MudText>
+    <MudText Typo="Typo.body2">
+        <strong>3. Restart Application</strong> - The table will load 10 sample products from the database
+    </MudText>
+</div>
+
+@code {
+    private List<ProductDto> _products = new();
+    private string _searchTerm = string.Empty;
+    private bool _loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
+    }
+
+    private async Task LoadProducts()
+    {
+        try
+        {
+            _loading = true;
+            var products = await ProductService.GetAllProductsAsync();
+            _products = products.ToList();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error loading products: {ex.Message}", Severity.Error);
+            _products = new List<ProductDto>();
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private async Task OnSearchKeyUp(KeyboardEventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(_searchTerm))
+        {
+            await LoadProducts();
+        }
+        else
+        {
+            try
+            {
+                var products = await ProductService.SearchProductsAsync(_searchTerm);
+                _products = products.ToList();
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Error searching products: {ex.Message}", Severity.Error);
+            }
+        }
+    }
+}
